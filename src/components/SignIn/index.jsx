@@ -3,6 +3,9 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Form from './Form'
 import * as yup from 'yup'
+import useSignIn from '../../hooks/useSignIn'
+import { useApolloClient } from '@apollo/client'
+import { useHistory } from 'react-router-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -26,9 +29,19 @@ const validationSchema = yup.object().shape({
 })
 
 const SignIn = () => {
+  const [signIn] = useSignIn()
+  const client = useApolloClient()
+  const history = useHistory()
 
-  const onSubmit = (values) => {
-    console.log(values)
+  const onSubmit = async (values) => {
+    const { username, password } = values
+    try {
+      await signIn({ username, password })
+      client.resetStore()
+      history.push('/')
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   return (
