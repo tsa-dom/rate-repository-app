@@ -3,7 +3,7 @@ import { View, StyleSheet, Pressable, ScrollView } from 'react-native'
 import Text from './Text'
 import Constants from 'expo-constants'
 import { Link } from 'react-router-native'
-import useSignOut from '../hooks/useSignout'
+import useSignOut from '../hooks/useSignOut'
 import useUser from '../hooks/useUser'
 
 const styles = StyleSheet.create({
