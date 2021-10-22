@@ -7,18 +7,21 @@ const Form = ({ onSubmit }) => {
   return (
     <View>
       <FormikTextInput
-        testID='username'
         name='username'
         placeholder='Username'
       />
       <FormikTextInput
-        testID='password'
         name='password'
         placeholder='Password'
         secureTextEntry
       />
+      <FormikTextInput
+        name='confirmation'
+        placeholder='Passwod confirmation'
+        secureTextEntry
+      />
       <Pressable testID='submit' onPress={onSubmit}>
-        <Text backgroundColor='blue' submitButton>Sign in</Text>
+        <Text backgroundColor='blue' submitButton>Sign up</Text>
       </Pressable>
     </View>
   )

@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
 const InfoBar = ({ fullName, description, language }) => {
   return (
     <View style={styles.container}>
-      <Text fontWeight='bold' style={styles.infoItem} >{fullName}</Text>
-      <Text style={styles.infoItem} >{description}</Text>
-      <Text style={styles.blueBox}>{language}</Text>
+      <Text testID='fullName' fontWeight='bold' style={styles.infoItem} >{fullName}</Text>
+      <Text testID='description' style={styles.infoItem} >{description}</Text>
+      <Text testID='language' style={styles.blueBox}>{language}</Text>
     </View>
   )
 }

@@ -20,19 +20,19 @@ const StatisticBar = ({ stars, forks, reviews, rating }) => {
   return (
     <View style={styles.container}>
       <View style={styles.columnItem}>
-        <Text fontWeight='bold' >{parseNumber(stars)}</Text>
+        <Text testID='stars' fontWeight='bold' >{parseNumber(stars)}</Text>
         <Text>Stars</Text>
       </View>
       <View style={styles.columnItem}>
-        <Text fontWeight='bold' >{parseNumber(forks)}</Text>
+        <Text testID='forks' fontWeight='bold' >{parseNumber(forks)}</Text>
         <Text>Forks</Text>
       </View>
       <View style={styles.columnItem}>
-        <Text fontWeight='bold' >{parseNumber(reviews)}</Text>
+        <Text testID='reviews' fontWeight='bold' >{parseNumber(reviews)}</Text>
         <Text>Reviews</Text>
       </View>
       <View style={styles.columnItem}>
-        <Text fontWeight='bold' >{parseNumber(rating)}</Text>
+        <Text testID='rating' fontWeight='bold' >{parseNumber(rating)}</Text>
         <Text>Rating</Text>
       </View>
     </View>

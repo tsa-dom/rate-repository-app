@@ -30,6 +30,20 @@ const AppBar = () => {
             <Text fontWeight='bold' color='header'>Repositories</Text>
           </Link>
         </Pressable>
+        {user &&
+          <Pressable>
+            <Link to='/review'>
+              <Text fontWeight='bold' color='header'>Create a review</Text>
+            </Link>
+          </Pressable>
+        }
+        {user &&
+          <Pressable>
+            <Link to='/myreviews'>
+              <Text fontWeight='bold' color='header'>My reviews</Text>
+            </Link>
+          </Pressable>
+        }
         {!user &&
           <Pressable>
             <Link to='/signin'>
@@ -41,6 +55,13 @@ const AppBar = () => {
           <Pressable >
             <Link onPress={handleSignOut}>
               <Text fontWeight='bold' color='header'>Sign out</Text>
+            </Link>
+          </Pressable>
+        }
+        {!user &&
+          <Pressable>
+            <Link to='/signup'>
+              <Text fontWeight='bold' color='header'>Sign up</Text>
             </Link>
           </Pressable>
         }

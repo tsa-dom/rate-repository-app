@@ -1,7 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Image } from 'react-native'
+import { StyleSheet, View, Image, Pressable } from 'react-native'
+import Text from '../Text'
 import InfoBar from './InfoBar'
 import StatisticBar from './StatisticsBar'
+import * as Linking from 'expo-linking'
 
 const styles = StyleSheet.create({
   item: {
@@ -21,12 +23,28 @@ const styles = StyleSheet.create({
   }
 })
 
-const RepositoryItem = ({ item }) => {
-  const { fullName, description, language, stargazersCount, forksCount, reviewCount, ratingAverage, ownerAvatarUrl } = item
+const RepositoryItem = ({ item, toRepository }) => {
+  const {
+    url,
+    fullName,
+    description,
+    language,
+    stargazersCount,
+    forksCount,
+    reviewCount,
+    ratingAverage,
+    ownerAvatarUrl
+  } = item
+
+  const handleToGitHub = () => {
+    Linking.openURL(url)
+  }
+
   return (
     <View style={styles.item}>
       <View style={styles.headerContainer}>
         <Image
+          testID='avatarUrl'
           style={styles.logo}
           source={{ uri: ownerAvatarUrl }}
         />
@@ -38,6 +56,11 @@ const RepositoryItem = ({ item }) => {
         reviews={reviewCount}
         rating={ratingAverage}
       />
+      {toRepository &&
+        <Pressable style={{ padding: 15 }} onPress={handleToGitHub}>
+          <Text submitButton>Open in GitHub</Text>
+        </Pressable>
+      }
     </View>
   )
 }
