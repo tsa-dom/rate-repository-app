@@ -48,7 +48,7 @@ describe('RepositoryList', () => {
         ],
       }
 
-      const { debug, getAllByTestId } = render(<RepositoryListContainer repositories={repositories.edges.map((edge) => edge.node)} />)
+      const { getAllByTestId } = render(<RepositoryListContainer repositories={repositories.edges.map((edge) => edge.node)} />)
 
       expect(getAllByTestId('fullName')[0]).toHaveTextContent('jaredpalmer/formik')
       expect(getAllByTestId('description')[0]).toHaveTextContent('Build forms in React, without the tears')

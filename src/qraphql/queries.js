@@ -194,7 +194,7 @@ export const CREATE_USER = gql`
 
 export const DELETE_REVIEW = gql`
   mutation deleteReview(
-    $id: String!
+    $id: ID!
   ) {
     deleteReview(
       id: $id

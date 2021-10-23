@@ -52,9 +52,12 @@ const OptionBar = ({ review }) => {
         },
         {
           text: 'OK',
-          onPress: async () => await deleteReview({
-            id: review.id
-          })
+          onPress: async () => {
+            await deleteReview({
+              id: review.id
+            })
+            history.push('/myreviews')
+          }
         }
       ]
     )
